@@ -33,7 +33,7 @@
 		my_anime.value.push({
 			id: anime.mal_id,
 			title: anime.title,
-			image: anime.image.jpg.image_url,
+			image: anime.images.jpg.image_url,
 			total_episodes: anime.episodes,
 			watched_episodes: 0,
 		});
@@ -60,7 +60,7 @@
 		<h1>My Anime List</h1>
 		<form @submit.prevent="searchAnime">
 			<input type="text" placeholder="Search for an anime" v-model="query" @input="handleInput" />
-			<button type="submit">Search</button>
+			<button class="button" type="submit">Search</button>
 		</form>
 
 		<div class="results" v-if="search_results.length > 0">
@@ -70,7 +70,7 @@
 					<h3>{{ anime.title }}</h3>
 					<p :title="anime.synopsis" v-if="anime.synopsis">{{ anime.synopsis.slice(0, 120) }} ...</p>
 					<span class="flex-1"></span>
-					<button @click="addAnime(anime)">Add to my anime</button>
+					<button class="button" @click="addAnime(anime)">Add to my anime</button>
 				</div>
 			</div>
 		</div>
@@ -83,8 +83,8 @@
 				<h3>{{ anime.title }}</h3>
 				<div class="flex-1"></div>
 				<span class="episodes"> {{ anime.watched_episodes }} / {{ anime.total_episodes }} </span>
-				<button v-if="anime.watched_episodes !== anime.total_episodes" @click="increaseWatch(anime)">+</button>
-				<button v-if="anime.watched_episodes > 0" @click="decreaseWatc(anime)">-</button>
+				<button class="button" v-if="anime.watched_episodes !== anime.total_episodes" @click="increaseWatch(anime)">+</button>
+				<button class="button" v-if="anime.watched_episodes > 0" @click="decreaseWatch(anime)">-</button>
 			</div>
 		</div>
 	</main>
@@ -156,6 +156,26 @@
 		margin-right: 1rem;
 	}
 
+	.button {
+		appearance: none;
+		outline: none;
+		border: none;
+		background: none;
+		cursor: pointer;
+		display: block;
+		padding: 0.5rem 1rem;
+		background-image: linear-gradient(to right, deeppink 50%, darkviolet 50%);
+		background-size: 200%;
+		color: white;
+		font-size: 1.125rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		transition: 0.4s;
+	}
+	.button:hover {
+		background-position: right;
+	}
+
 	.details {
 		flex: 1 1 0%;
 		display: flex;
@@ -165,6 +185,7 @@
 
 	.flex-1 {
 		flex: 1 1 0%;
+		display: block;
 	}
 
 	.details h3 {
@@ -182,7 +203,7 @@
 		margin-left: auto;
 	}
 
-	.mayanime .anime {
+	.myanime .anime {
 		display: flex;
 		align-items: center;
 		margin-bottom: 1.5rem;
@@ -190,6 +211,12 @@
 		padding: 1rem;
 		border-radius: 0.5rem;
 		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	.myanime h2 {
+		color: #888;
+		font-weight: 400;
+		margin-bottom: 1.5rem;
 	}
 
 	.anime img {
@@ -212,5 +239,9 @@
 
 	.anime .button:first-of-type {
 		margin-right: 1rem;
+	}
+
+	.anime .button:last-of-type {
+		margin-right: 0;
 	}
 </style>
