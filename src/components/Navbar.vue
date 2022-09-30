@@ -1,6 +1,6 @@
 <template>
 	<div class="topnav">
-		<router-link to="/" class="active" href="#">Home</router-link>
+		<router-link to="/" href="#">Home</router-link>
 		<router-link to="/detail">Detail</router-link>
 	</div>
 </template>
@@ -9,7 +9,9 @@
 	.topnav {
 		background-color: #333;
 		overflow: hidden;
+		margin: auto;
 		width: 100%;
+		margin-bottom: 3rem;
 	}
 
 	.topnav a {
@@ -22,8 +24,9 @@
 	}
 
 	.topnav a:hover {
-		background-color: #ddd;
-		color: black;
+		background-color: #4eb1d9;
+		color: white;
+		font-weight: bolder;
 	}
 
 	.topnav a.active {
