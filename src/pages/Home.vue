@@ -17,6 +17,7 @@
 			.then((res) => res.json())
 			.then((res) => {
 				search_results.value = res.data;
+				// console.log(res.data);
 			});
 	};
 
@@ -65,7 +66,7 @@
 
 		<div class="results" v-if="search_results.length > 0">
 			<div class="result" v-for="anime in search_results">
-				<img :src="anime.images.jpg.image_url" alt="picture" />
+				<router-link :to="`/detail/1`"><img :src="anime.images.jpg.image_url" alt="picture" /></router-link>
 				<div class="details">
 					<h3>{{ anime.title }}</h3>
 					<p :title="anime.synopsis" v-if="anime.synopsis">{{ anime.synopsis.slice(0, 120) }} ...</p>
@@ -98,10 +99,6 @@
 		font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 	}
 
-	body {
-		background-color: whitesmoke;
-	}
-
 	main {
 		margin: 0 auto;
 		max-width: 768px;
@@ -112,6 +109,7 @@
 		font-size: 2rem;
 		text-align: center;
 		margin-bottom: 1.5rem;
+		color: white;
 	}
 
 	form {
@@ -127,7 +125,7 @@
 		background: white;
 
 		display: block;
-		color: cadetblue;
+		color: #294273;
 		font-size: 1.125 rem;
 		padding: 0.5rem 1rem;
 		width: 100%;
@@ -165,7 +163,7 @@
 		cursor: pointer;
 		display: block;
 		padding: 0.5rem 1rem;
-		background-image: linear-gradient(to right, rgb(6, 58, 90) 50%, rgb(10, 140, 221) 50%);
+		background-image: linear-gradient(to right, #4eb1d9 50%, #4b53f2 50%);
 		background-size: 200%;
 		color: white;
 		font-size: 1.125rem;
@@ -200,6 +198,7 @@
 		line-height: 1.4;
 		margin-bottom: 0.5rem;
 		text-align: left;
+		color: #294273;
 	}
 
 	.details .button {
@@ -209,7 +208,7 @@
 	.myanime .anime {
 		display: flex;
 		align-items: center;
-		margin-bottom: 1.5rem;
+		margin: 0 auto 1.5rem;
 		background-color: white;
 		padding: 1rem;
 		border-radius: 0.5rem;
@@ -217,9 +216,10 @@
 	}
 
 	.myanime h2 {
-		color: #888;
+		color: white;
 		font-weight: 600;
 		margin-bottom: 1.5rem;
+		text-align: center;
 	}
 
 	.anime img {
@@ -257,7 +257,7 @@
 		}
 		.myanime h2 {
 			text-align: left;
-			color: #888;
+			color: white;
 			font-weight: 600;
 			margin-bottom: 1.5rem;
 		}

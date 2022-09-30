@@ -11,4 +11,8 @@
 	};
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+	body {
+		background-color: #294273;
+	}
+</style>
