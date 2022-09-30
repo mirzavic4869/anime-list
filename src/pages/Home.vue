@@ -66,7 +66,7 @@
 
 		<div class="results" v-if="search_results.length > 0">
 			<div class="result" v-for="anime in search_results">
-				<router-link :to="`/detail/1`"><img :src="anime.images.jpg.image_url" alt="picture" /></router-link>
+				<img :src="anime.images.jpg.image_url" alt="picture" />
 				<div class="details">
 					<h3>{{ anime.title }}</h3>
 					<p :title="anime.synopsis" v-if="anime.synopsis">{{ anime.synopsis.slice(0, 120) }} ...</p>

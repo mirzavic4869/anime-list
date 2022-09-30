@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<div class="anime-detail">
 		<h2>{{ characters.name }}</h2>
 		<h3>{{ characters.name_kanji }}</h3>
@@ -53,4 +53,4 @@
 		font-size: 18px;
 		line-height: 1.4;
 	}
-</style>
+</style> -->
